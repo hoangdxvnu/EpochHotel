@@ -1,0 +1,22 @@
+﻿@if (Model != null)
+{
+    <section class="gallery-block gallery-front">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="gallery-image">
+                            <img class="img-responsive" src="@item.UrlImage">
+                            <div class="overlay">
+                                <a class="info pop example-image-link img-responsive" href="@item.UrlImage" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                <p><a>@item.TypeName</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}

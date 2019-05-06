@@ -1,0 +1,17 @@
+﻿@using HAHotel.Models
+@{
+    var menu = (SystemMenu) ViewBag.CurrentMenu;
+}
+@if (menu != null && (menu.Controller.ToLower() != "home" || menu.Action.ToLower()!="index"))
+{
+    <section class="image-head-wrapper" style="background-image: url('@(menu.UrlImage ?? "/images/banner4.jpg")');">
+        <div class="inner-wrapper">
+            <h1>@(menu.MenuItemName)</h1>
+        </div>
+    </section>
+    <div class="clearfix"></div>
+}
+else
+{
+    @Html.Action("Slide", "Menu")
+}

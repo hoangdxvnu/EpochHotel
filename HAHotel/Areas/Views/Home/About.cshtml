@@ -1,0 +1,13 @@
+﻿@model HAHotel.Models.Introduction
+@if (Model != null)
+{
+    <section class="about-block">
+        <div class="container">
+            <div class="row">
+                @Html.Raw(Model.MainContent)
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </section>
+}
+

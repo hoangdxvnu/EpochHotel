@@ -1,0 +1,12 @@
+﻿@if (Model != null)
+{
+    <div class="collapse navigation navbar-collapse navbar-ex1-collapse remove-space">
+        <ul class="list-unstyled nav1 cl-effect-10">
+            @foreach (var item in Model)
+            {
+                <li><a href="@Url.Action(item.Action, item.Controller)" data-hover="@item.MenuItemName"><span>@item.MenuItemName</span></a></li>
+            }
+        </ul>
+    </div>
+}
+

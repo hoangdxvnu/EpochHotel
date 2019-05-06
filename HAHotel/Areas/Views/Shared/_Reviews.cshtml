@@ -1,0 +1,74 @@
+﻿@model IEnumerable<HAHotel.Models.Reviews>
+@if (Model != null && Model.Any())
+{
+    int i = 0;
+    <section class="blog-block-slider">
+        <div class="blog-block-slider-fix-image">
+            <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+                <div class="container">
+                    <!-- Wrapper for slides -->
+                    <ol class="carousel-indicators">
+                        @foreach (var item in Model)
+                        {
+                            if (i == 0)
+                            {
+                                <li data-target="#myCarousel2" data-slide-to="@i" class="active"></li>
+                            }
+                            else
+                            {
+                                <li data-target="#myCarousel2" data-slide-to="@i"></li>
+                            }
+                            i++;
+                        }
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        @{ i = 0;}
+                        @foreach (var item in Model)
+                        {
+                            if (i == 0)
+                            {
+                                <div class="item active">
+                                    <div class="blog-box">
+                                        <p>@Html.Raw(item.Description)</p>
+                                    </div>
+                                    <div class="blog-view-box">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="@item.UrlImage" class="media-object">
+                                            </div>
+                                            <div class="media-body">
+                                                <h3 class="media-heading blog-title">@item.CustomerName</h3>
+                                                <h5 class="blog-rev">@item.MarketCustomer</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="item">
+                                    <div class="blog-box">
+                                        <p>@Html.Raw(item.Description)</p>
+                                    </div>
+                                    <div class="blog-view-box">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="@item.UrlImage" class="media-object">
+                                            </div>
+                                            <div class="media-body">
+                                                <h3 class="media-heading blog-title">@item.CustomerName</h3>
+                                                <h5 class="blog-rev">@item.MarketCustomer</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            i++;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </section>
+}

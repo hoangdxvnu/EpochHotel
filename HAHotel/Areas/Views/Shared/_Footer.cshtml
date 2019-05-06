@@ -1,0 +1,70 @@
+﻿@model HAHotel.Models.Footer
+
+@if (Model != null)
+{
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12 width-set-50">
+                <div class="footer-details">
+                    <h4>@Model.TitleFooter</h4>
+                    <ul class="list-unstyled footer-contact-list">
+                        <li>
+                            <i class="fa fa-map-marker fa-lg"></i>
+                            <p>@Model.Address</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-lg"></i>
+                            <p><a href="tel:+1-202-555-0100">@Model.Phone</a></p>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o fa-lg"></i>
+                            <p><a href="mailto:demo@info.com">@Model.Email</a></p>
+                        </li>
+                    </ul>
+                    <div class="footer-social-icon">
+                        <a href="@Model.Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="@Model.Twifter"><i class="fa fa-twitter"></i></a>
+                        <a href="@Model.Google"><i class="fa fa-instagram"></i></a>
+                        <a href="@Model.Google"><i class="fa fa-google-plus"></i></a>
+                        <a href="@Model.Youtube"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 width-50 width-set-50">
+                <div class="footer-details">
+                    <h4>Khám phá</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li class="active"><a>Trang chủ</a></li>
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="rooms.html">Phòng</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                        <li> <a href="news.html">Tin tức</a></li>
+                        <li> <a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="footer-details">
+                    <h4>Bảo mật các giao dịch trực tuyến</h4>
+                    <div class="row">
+                        <div class="instagram-images">
+                            <script type="text/javascript"> //<![CDATA[
+                                var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.trust-provider.com/" : "http://www.trustlogo.com/");
+                                document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+                            <script language="JavaScript" type="text/javascript">
+                                TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_lg_222x54.png", "POSDV", "none");
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; @DateTime.UtcNow.Year Bản quyền thuộc về khách sạn NEW EPOCH SAPA HOTEL.
+        </div>
+    </div>
+</footer>
+}
