@@ -154,25 +154,29 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RoomTypeController.cs" />
+    <Compile Include="Areas\Admin\ViewComponents\ListViewComponent.cs" />
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Areas\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Controllers\ContactController.cs" />
-    <Compile Include="Areas\Controllers\GalleryController.cs" />
-    <Compile Include="Areas\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Controllers\MenuController.cs" />
-    <Compile Include="Areas\Controllers\NewsController.cs" />
-    <Compile Include="Areas\Controllers\RoomController.cs" />
-    <Compile Include="Areas\Controllers\ServiceController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Models\Footer.cs" />
-    <Compile Include="Areas\Models\Introduction.cs" />
-    <Compile Include="Areas\Models\News.cs" />
-    <Compile Include="Areas\Models\Reviews.cs" />
-    <Compile Include="Areas\Models\RoomType.cs" />
-    <Compile Include="Areas\Models\SystemSlide.cs" />
+    <Compile Include="Models\Footer.cs" />
+    <Compile Include="Models\Introduction.cs" />
+    <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Reviews.cs" />
+    <Compile Include="Models\RoomType.cs" />
+    <Compile Include="Models\SystemSlide.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Common\ExecuteTypeEnum.cs" />
     <Compile Include="Repository\Common\SqlMapper.cs" />
@@ -181,7 +185,7 @@
     <Compile Include="Repository\IDatabase.cs" />
     <Compile Include="Repository\ILayoutRepository.cs" />
     <Compile Include="Repository\LayoutRepository.cs" />
-    <Compile Include="Areas\Models\SystemMenu.cs" />
+    <Compile Include="Models\SystemMenu.cs" />
     <Compile Include="Repository\SqlServerDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -334,6 +338,13 @@
     <Content Include="AdminStyle\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="AdminStyle\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="AdminStyle\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Admin\Views\Shared\_Menu.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -347,39 +358,42 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Unity.Mvc3.README.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Areas\Views\Web.config" />
-    <Content Include="Areas\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Views\Shared\Error.cshtml" />
-    <Content Include="Areas\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Views\Home\About.cshtml" />
-    <Content Include="Areas\Views\Home\Contact.cshtml" />
-    <Content Include="Areas\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Views\Shared\_Menu.cshtml" />
-    <Content Include="Areas\Views\Room\Index.cshtml" />
-    <Content Include="Areas\Views\Shared\_SectionRoomType.cshtml" />
-    <Content Include="Areas\Views\Shared\_Slide.cshtml" />
-    <Content Include="Areas\Views\Shared\_HotNews.cshtml" />
-    <Content Include="Areas\Views\Shared\_Reviews.cshtml" />
-    <Content Include="Areas\Views\Shared\_Footer.cshtml" />
-    <Content Include="Areas\Views\Contact\Index.cshtml" />
-    <Content Include="Areas\Views\Shared\_Background.cshtml" />
-    <Content Include="Areas\Views\News\Index.cshtml" />
-    <Content Include="Areas\Views\Gallery\Index.cshtml" />
-    <Content Include="Areas\Views\Admin\Index.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Shared\_SectionRoomType.cshtml" />
+    <Content Include="Views\Shared\_Slide.cshtml" />
+    <Content Include="Views\Shared\_HotNews.cshtml" />
+    <Content Include="Views\Shared\_Reviews.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Shared\_Background.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Views\Base\" />
-    <Folder Include="Areas\Views\Menu\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Common\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Menu\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
