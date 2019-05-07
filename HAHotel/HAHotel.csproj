@@ -157,7 +157,6 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoomTypeController.cs" />
-    <Compile Include="Areas\Admin\ViewComponents\ListViewComponent.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -390,6 +389,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\RoomType\" />
     <Folder Include="Common\" />
     <Folder Include="Helpers\" />
     <Folder Include="Views\Base\" />
