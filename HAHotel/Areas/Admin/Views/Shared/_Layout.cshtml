@@ -36,8 +36,15 @@
                 <a class="navbar-brand" href="#">HaHotel</a>
             </div>
 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
             @Html.Partial("_Menu")
-        </nav>  
+        </nav>
 
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -48,12 +55,35 @@
                         <h1 class="page-header">@ViewBag.PageTitle</h1>
                     </div>
                 </div>
+
+                @Html.Partial("_Notifications")
                 @RenderBody()
             </div>
         </div>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
+        <script src="/AdminStyle/js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="/AdminStyle/js/bootstrap.min.js"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="/AdminStyle/js/metisMenu.min.js"></script>
+
+        <!-- DataTables JavaScript -->
+        <script src="/AdminStyle/js/dataTables/jquery.dataTables.min.js"></script>
+        <script src="/AdminStyle/js/dataTables/dataTables.bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="/AdminStyle/js/startmin.js"></script>
+
+        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+        <script>
+            $(document).ready(function() {
+                $('#dataTables-example').DataTable({
+                        responsive: true
+                });
+            });
+        </script>
         @RenderSection("scripts", required: false)
 </body>
 </html>
