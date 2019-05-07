@@ -46,6 +46,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CKFinder, Version=2.6.0.2792, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\HP\Downloads\ckfinder_aspnet_2.6.2\ckfinder\bin\Release\CKFinder.dll</HintPath>
+    </Reference>
+    <Reference Include="CKFinder_FileEditor, Version=2.1.0.1132, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\HP\Downloads\ckfinder_aspnet_2.6.2\ckfinder\bin\Release\CKFinder_FileEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="CKFinder_ImageResize, Version=2.1.0.1132, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\HP\Downloads\ckfinder_aspnet_2.6.2\ckfinder\bin\Release\CKFinder_ImageResize.dll</HintPath>
+    </Reference>
+    <Reference Include="CKFinder_Watermark, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\HP\Downloads\ckfinder_aspnet_2.6.2\ckfinder\bin\Release\CKFinder_Watermark.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -156,6 +172,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoomTypeController.cs" />
     <Compile Include="Areas\Base\BaseController.cs" />
     <Compile Include="Bootstrapper.cs" />
@@ -186,11 +203,13 @@
     <Compile Include="Repository\Common\SqlServerParameter.cs" />
     <Compile Include="Repository\IDatabase.cs" />
     <Compile Include="Repository\ILayoutRepository.cs" />
+    <Compile Include="Repository\ISystemMenuRepository.cs" />
     <Compile Include="Repository\IRoomTypeRepository.cs" />
     <Compile Include="Repository\LayoutRepository.cs" />
     <Compile Include="Models\SystemMenu.cs" />
     <Compile Include="Repository\RoomTypeRepository.cs" />
     <Compile Include="Repository\SqlServerDatabase.cs" />
+    <Compile Include="Repository\SystemMenuRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminStyle\css\bootstrap-social.css" />
@@ -714,6 +733,8 @@
     <Content Include="AdminStyle\js\ckeditor\plugins\scayt\README.md" />
     <Content Include="AdminStyle\js\ckeditor\plugins\wsc\LICENSE.md" />
     <Content Include="AdminStyle\js\ckeditor\plugins\wsc\README.md" />
+    <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -759,7 +780,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\RoomType\" />
     <Folder Include="Common\" />
     <Folder Include="Helpers\" />
     <Folder Include="Views\Base\" />
