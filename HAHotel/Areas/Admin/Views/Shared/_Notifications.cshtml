@@ -1,0 +1,14 @@
+﻿<div class="row message">
+    @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+    {
+        <div class="alert alert-success">
+            @ViewBag.SuccessMessage
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(ViewBag.FailedMessage))
+    {
+        <div class="alert alert-danger">
+            @ViewBag.FailedMessage
+        </div>
+    }
+</div>
