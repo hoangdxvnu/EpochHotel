@@ -6,3 +6,14 @@
 
 <h2>Index</h2>
 
+<form>
+    <textarea name="editor1" id="editor1" rows="10" cols="80">
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+</form>
+<script src="~/AdminStyle/js/ckeditor/ckeditor.js"></script>
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1');
+</script>
