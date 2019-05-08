@@ -10,10 +10,30 @@
     <textarea name="editor1" id="editor1" rows="10" cols="80">
                 This is my textarea to be replaced with CKEditor.
             </textarea>
+    <a id="btSelect" href="#">Chọn ảnh</a>
 </form>
 <script src="~/AdminStyle/js/ckeditor/ckeditor.js"></script>
-<script>
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-    CKEDITOR.replace('editor1');
-</script>
+<script src="~/AdminStyle/ckfinder/ckfinder.js"></script>
+@section scripts {
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+
+        var editor = CKEDITOR.replace('editor1');
+        CKFinder.setupCKEditor(editor, '../ckfinder/');
+
+        $(document).ready(function () {
+            $("#btSelect").on("click",
+                function (e) {
+                    e.preventDefault();
+                    var ckfinder = new CKFinder();
+                    ckfinder.selectActionFunction = function (url) {
+                        console.log(url);
+                    };
+
+                    ckfinder.popup();
+                });
+        });
+
+    </script>
+}

@@ -28,6 +28,7 @@ namespace HAHotel
 
             container.RegisterType<ILayoutRepository, LayoutRepository>(new TransientLifetimeManager());
             container.RegisterType<IRoomTypeRepository, RoomTypeRepository>(new TransientLifetimeManager());
+            container.RegisterType<ISystemMenuRepository, SystemMenuRepository>(new TransientLifetimeManager());
 
             return container;
         }
