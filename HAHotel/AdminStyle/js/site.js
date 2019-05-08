@@ -7,12 +7,3 @@
         window.location.replace(link.data("url"));
     }
 }
-
-function selectFile(input) {
-    var ckfinder = new CKFinder();
-    ckfinder.selectActionFunction = function (url) {
-        input.value(url);
-    };
-
-    ckfinder.popup();
-}
