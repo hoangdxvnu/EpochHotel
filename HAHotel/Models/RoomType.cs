@@ -5,8 +5,8 @@ namespace HAHotel.Models
     public class RoomType
     {
         public int RoomTypeId { get; set; }
-        [Required]
-        [Display(Name ="Tên loại phòng")]
+        [Required(ErrorMessage = "Bạn cần nhập tên loại phòng")]
+        [Display(Name = "Tên loại phòng")]
         public string TypeName { get; set; }
         [Display(Name = "Ảnh đại diện")]
         public string UrlImage { get; set; }

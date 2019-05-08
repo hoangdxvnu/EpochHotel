@@ -12,5 +12,9 @@ namespace HAHotel.Repository
         List<RoomType> GetListRoomType(RoomTypeRequest request);
 
         RoomType GetById(int id);
+
+        bool Save(RoomType roomType);
+
+        bool Delete(int id);
     }
 }
