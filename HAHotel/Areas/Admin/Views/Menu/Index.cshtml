@@ -35,12 +35,12 @@
                                         <td>@item.MenuItemId</td>
                                         <td>@item.MenuItemName</td>
                                         <td class="center">
-                                            <img width="50%" height="60%" src="@item.UrlImage" />
+                                            <img width="200px" height="100px" src="@item.UrlImage" />
                                         </td>
                                         <td class="center">@(item.IsActive ? Constants.ActiveDescription : Constants.InactiveDescription)</td>
                                         <td class="center">
-                                            <a href="@Url.Action("Edit", "RoomType", new { Area= "Admin"})">Sửa</a>
-                                            <a href="@Url.Action("Delete", "RoomType", new { Area= "Admin"})">Xóa</a>
+                                            <a href="@Url.Action("Edit", "Menu", new { Area= "Admin", ItemId =item.MenuItemId})">Sửa</a>
+                                            <a href="@Url.Action("Delete", "Menu", new { Area= "Admin"})">Xóa</a>
                                         </td>
                                     </tr>
                                 }

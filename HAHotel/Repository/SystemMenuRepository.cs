@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using HAHotel.Models;
 using HAHotel.Repository.Common;
 
@@ -33,7 +34,13 @@ namespace HAHotel.Repository
 
         public SystemMenu GetById(int id)
         {
-            throw new NotImplementedException();
+            var data = _database.ExecuteToTable($"SELECT * FROM SystemMenu WHERE MenuItemId = {id}", null, ExecuteTypeEnum.SqlQuery);
+            if (data != null && data.Rows.Count > 0)
+            {
+                return SqlMapper<SystemMenu>.Map(data).FirstOrDefault();
+            }
+
+            return new SystemMenu();
         }
     }
 }
