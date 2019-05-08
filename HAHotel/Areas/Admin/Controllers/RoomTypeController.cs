@@ -42,8 +42,48 @@ namespace HAHotel.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(RoomType roomType)
+        public ActionResult Edit(RoomType roomType, HttpPostedFileBase image)
         {
+            if (roomType == null || image == null)
+            {
+                SetFailedNotification("Có lỗi xảy ra. Vui lòng thử lại");
+                return RedirectToAction("Index");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                foreach (var item in ModelState.Values)
+                {
+                    SetFailedNotification(item.Value.ToString());
+                }
+                return RedirectToAction("Index");
+            }
+
+            var imageFolderPath = "/images";
+            SaveFile(image, $"~{imageFolderPath}");
+            roomType.UrlImage = imageFolderPath + image.FileName;
+            if (_roomTypeRepository.Save(roomType))
+            {
+                SetSuccessNotification("Thêm loại phòng thành công");
+            }
+            else
+            {
+                SetFailedNotification("Thêm loại phòng không thành công. Xin thử lại");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete()
+        {
+            if (ItemId < 0)
+            {
+                return RedirectToAction("Index");
+            }
+
+            _roomTypeRepository.Delete(ItemId);
+            SetSuccessNotification("Xóa loại phòng thành công");
+
             return RedirectToAction("Index");
         }
     }

@@ -10,7 +10,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        @using (Html.BeginForm())
+                        @using (Html.BeginForm("Edit", "RoomType", FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
                         <div class="form-group">
                             @Html.LabelFor(model => model.TypeName)
@@ -20,7 +20,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.UrlImage)
-                            <input name="UrlImage" type="file">
+                            <input name="image" type="file">
                             @Html.ValidationMessageFor(model => model.UrlImage, "", new { @class = "text-danger" })
                         </div>
 

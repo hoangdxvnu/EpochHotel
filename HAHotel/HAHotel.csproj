@@ -1250,6 +1250,7 @@
     <Content Include="AdminStyle\js\morris-data.js" />
     <Content Include="AdminStyle\js\morris.min.js" />
     <Content Include="AdminStyle\js\raphael.min.js" />
+    <Content Include="AdminStyle\js\site.js" />
     <Content Include="AdminStyle\js\startmin.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

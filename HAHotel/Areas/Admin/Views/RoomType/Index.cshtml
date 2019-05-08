@@ -49,7 +49,7 @@
                                         <td class="center">@(item.IsActive ? Constants.ActiveDescription : Constants.InactiveDescription)</td>
                                         <td class="center">
                                             <a href="@Url.Action("Edit", "RoomType", new { Area= "Admin"})">Sửa</a>
-                                            <a href="@Url.Action("Delete", "RoomType", new { Area= "Admin"})">Xóa</a>
+                                            <a href="#" onclick="return confirmDelete($(this));" data-url="@Html.Raw(Url.Action("Delete", "RoomType", new { Area= "Admin", itemId = item.RoomTypeId}))">Xóa</a>
                                         </td>
                                     </tr>
                                 }
