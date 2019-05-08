@@ -38,13 +38,13 @@ namespace HAHotel.Areas.Admin.Controllers
 
             SetPageTitle("Tạo mới loại phòng");
 
-            return View();
+            return View(new RoomType());
         }
 
         [HttpPost]
-        public ActionResult Edit(RoomType roomType, HttpPostedFileBase image)
+        public ActionResult Edit(RoomType roomType)
         {
-            if (roomType == null || image == null)
+            if (roomType == null)
             {
                 SetFailedNotification("Có lỗi xảy ra. Vui lòng thử lại");
                 return RedirectToAction("Index");
@@ -59,16 +59,14 @@ namespace HAHotel.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            var imageFolderPath = "/images";
-            SaveFile(image, $"~{imageFolderPath}");
-            roomType.UrlImage = imageFolderPath + image.FileName;
+            var message = roomType.RoomTypeId > 0 ? "Cập nhật" : "Thêm";
             if (_roomTypeRepository.Save(roomType))
             {
-                SetSuccessNotification("Thêm loại phòng thành công");
+                SetSuccessNotification($"{message} phòng thành công");
             }
             else
             {
-                SetFailedNotification("Thêm loại phòng không thành công. Xin thử lại");
+                SetFailedNotification($"{message} loại phòng không thành công. Xin thử lại");
             }
 
             return RedirectToAction("Index");
