@@ -92,14 +92,5 @@ namespace HAHotel.Areas.Base
         {
             ViewBag.PageTitle = title;
         }
-
-        protected void SaveFile(HttpPostedFileBase file, string folder)
-        {
-            if (file == null || file.ContentLength <= 0)
-                return;
-            var fileName = Path.GetFileName(file.FileName);
-            var path = Path.Combine(Server.MapPath(folder), fileName);
-            file.SaveAs(path);
-        }
     }
 }
