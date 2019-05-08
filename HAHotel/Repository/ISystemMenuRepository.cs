@@ -8,5 +8,7 @@ namespace HAHotel.Repository
         List<SystemMenu> GetListRoomType(RoomTypeRequest request);
 
         SystemMenu GetById(int id);
+
+        bool Save(SystemMenu systemMenu);
     }
 }

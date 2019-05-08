@@ -42,5 +42,18 @@ namespace HAHotel.Repository
 
             return new SystemMenu();
         }
+
+        public bool Save(SystemMenu systemMenu)
+        {
+            var param = new SqlServerParameter();
+            param.Add_Parameter("@_Name", systemMenu.MenuItemName);
+            param.Add_Parameter("@_UrlImage", systemMenu.UrlImage);
+            param.Add_Parameter("@_IsActive", systemMenu.IsActive);
+            param.Add_Parameter("@_Id", systemMenu.MenuItemId);
+
+            var data = _database.ExecuteScalar<int>("SystemMenu_Save", param, ExecuteTypeEnum.StoredProcedure);
+
+            return data == 1;
+        }
     }
 }

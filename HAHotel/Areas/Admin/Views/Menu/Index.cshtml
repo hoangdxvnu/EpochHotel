@@ -14,7 +14,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Danh sách loại phòng
+                    Danh sách menu hệ thống
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -40,7 +40,7 @@
                                         <td class="center">@(item.IsActive ? Constants.ActiveDescription : Constants.InactiveDescription)</td>
                                         <td class="center">
                                             <a href="@Url.Action("Edit", "Menu", new { Area= "Admin", ItemId =item.MenuItemId})">Sửa</a>
-                                            <a href="@Url.Action("Delete", "Menu", new { Area= "Admin"})">Xóa</a>
+@*                                            <a href="#" onclick="return confirmDelete($(this));" data-url="@Html.Raw(Url.Action("Delete", "Menu", new { Area= "Admin", itemId = item.MenuItemId}))">Xóa</a>*@
                                         </td>
                                     </tr>
                                 }

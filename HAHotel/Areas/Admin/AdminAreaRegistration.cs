@@ -20,9 +20,9 @@ namespace HAHotel.Areas.Admin
         {
             context.MapRoute(
             "Admin",
-            "{area}/{controller}/{action}/{id}",
-            new { area = $"{AreaName}", controller = "Home", action = "Index", id = UrlParameter.Optional }
-        );
+            "Admin/{controller}/{action}/{id}",
+            new { area = $"{AreaName}", controller = "Home",action = "Index", id = UrlParameter.Optional },
+            new[] { "HAHotel.Areas.Admin.Controllers" });
         }
     }
 }

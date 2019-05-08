@@ -18,7 +18,7 @@ namespace HAHotel.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var listType = _menuRepository.GetListRoomType(new RoomTypeRequest());
-            SetPageTitle("Quản lý danh sách menu");
+            SetPageTitle("Quản lý menu");
 
             return View(listType);
         }
@@ -35,12 +35,36 @@ namespace HAHotel.Areas.Admin.Controllers
 
             SetPageTitle("Tạo mới menu");
 
-            return View();
+            return View(new SystemMenu());
         }
 
         [HttpPost]
         public ActionResult Edit(SystemMenu systemMenu)
         {
+            if (systemMenu == null)
+            {
+                SetFailedNotification("Có lỗi xảy ra. Vui lòng thử lại");
+                return RedirectToAction("Index");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                foreach (var item in ModelState.Values)
+                {
+                    SetFailedNotification(item.Value.ToString());
+                }
+                return View(systemMenu);
+            }
+
+            if (_menuRepository.Save(systemMenu))
+            {
+                SetSuccessNotification("Thêm loại phòng thành công");
+            }
+            else
+            {
+                SetFailedNotification("Thêm loại phòng không thành công. Xin thử lại");
+            }
+
             return RedirectToAction("Index");
         }
     }
