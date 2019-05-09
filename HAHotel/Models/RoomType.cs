@@ -12,5 +12,15 @@ namespace HAHotel.Models
         public string UrlImage { get; set; }
         [Display(Name = "Hoạt động")]
         public bool IsActive { get; set; }
+
+        [Display(Name = "Giá phòng")]
+        public double Price { get; set; }
+
+        [Display(Name = "Phòng Hot")]
+        public bool IsHot { get; set; }
+
+        [Display(Name = "Mô tả")]
+        public string Description { get; set; }
+
     }
 }

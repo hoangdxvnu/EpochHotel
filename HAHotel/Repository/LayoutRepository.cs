@@ -96,5 +96,33 @@ namespace HAHotel.Repository
 
             return null;
         }
+
+        public bool SaveIntroduction(Introduction introduction)
+        {
+            var param = new SqlServerParameter();
+            param.Add_Parameter("@_MainContent", introduction.MainContent);
+
+            var data = _database.ExecuteScalar<int>("Introduction_Save", param, ExecuteTypeEnum.StoredProcedure);
+
+            return data == 1;
+        }
+
+        public bool SaveFooter(Footer footer)
+        {
+            var param = new SqlServerParameter();
+            param.Add_Parameter("@_TitleFooter", footer.TitleFooter);
+            param.Add_Parameter("@_Address", footer.Address);
+            param.Add_Parameter("@_Phone", footer.Phone);
+            param.Add_Parameter("@_Email", footer.Email);
+            param.Add_Parameter("@_Facebook", footer.Facebook);
+            param.Add_Parameter("@_Twifter", footer.Twifter);
+            param.Add_Parameter("@_Youtube", footer.Youtube);
+            param.Add_Parameter("@_Google", footer.Google);
+            param.Add_Parameter("@_FooterId", footer.FooterId);
+
+            var data = _database.ExecuteScalar<int>("Footer_Save", param, ExecuteTypeEnum.StoredProcedure);
+
+            return data == 1;
+        }
     }
 }

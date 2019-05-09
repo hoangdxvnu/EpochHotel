@@ -14,14 +14,13 @@
                     <div class="side-A">
                         <div class="product-thumb">
                             <div class="image">
-                                <a><img src="@item.UrlImage" class="img-responsive" alt="image"></a>
+                                <a><img style="width: 280px !important; height: 186px !important;" src="@item.UrlImage" class="img-responsive" alt="image"></a>
                             </div>
                         </div>
                     </div>
                     <div class="side-B">
                         <div class="product-desc-side">
-                            <h3><a>@item.Title</a>
-                            </h3>
+                            <h3><a>@item.Title</a></h3>
                             <p>@Html.Raw(item.Description)</p>
                             <div class="links"><a href="single-blog.html">Xem thêm</a>
                             </div>
@@ -36,7 +35,7 @@
                     <div class="side-A">
                         <div class="product-thumb">
                             <div class="image">
-                                <a><img src="@item.UrlImage" class="img-responsive" alt="image"></a>
+                                <a><img style="width: 280px !important; height: 186px !important;" src="@item.UrlImage" class="img-responsive" alt="image"></a>
                             </div>
                         </div>
                     </div>
@@ -54,6 +53,7 @@
                 </div>
                 <div class="clear"></div>
             }
+            i++;
         }
        </div>
 </div>

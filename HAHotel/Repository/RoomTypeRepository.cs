@@ -58,6 +58,9 @@ namespace HAHotel.Repository
             param.Add_Parameter("@_UrlImage", roomType.UrlImage);
             param.Add_Parameter("@_IsActive", roomType.IsActive);
             param.Add_Parameter("@_Id", roomType.RoomTypeId);
+            param.Add_Parameter("@_Price", roomType.Price);
+            param.Add_Parameter("@_IsHot", roomType.IsHot);
+            param.Add_Parameter("@_Description", roomType.Description);
 
             var data = _database.ExecuteScalar<int>("RoomType_Save", param, ExecuteTypeEnum.StoredProcedure);
 

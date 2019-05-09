@@ -10,5 +10,13 @@ namespace HAHotel.Repository
         SystemMenu GetById(int id);
 
         bool Save(SystemMenu systemMenu);
+
+        List<SystemSlide> GetListSlides(RoomTypeRequest request);
+
+        SystemSlide GetSlideById(int id);
+
+        bool SaveSlide(SystemSlide systemSlide);
+
+
     }
 }

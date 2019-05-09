@@ -18,5 +18,9 @@ namespace HAHotel.Repository
         Footer LoadFooterDefaul();
 
         Introduction LoadDefaultIntroduction();
+
+        bool SaveIntroduction(Introduction introduction);
+
+        bool SaveFooter(Footer footer);
     }
 }

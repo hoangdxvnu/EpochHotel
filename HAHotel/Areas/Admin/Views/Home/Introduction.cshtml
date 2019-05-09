@@ -1,15 +1,14 @@
 ﻿@model HAHotel.Models.Introduction
-@if (Model != null)
+@if (Model != null && !string.IsNullOrEmpty(Model.MainContent))
 {
-<textarea name="editor1" id="editor1" rows="100" cols="80">
-@*                    @Html.Raw(Model.MainContent)*@
-            </textarea>
+    @Html.Raw(Model.MainContent)
 }
 else
 {
     <h1>Bạn chưa viết bài giới thiệu công ty</h1>
-    <a href="@Url.Action("EditIntroduction", "Home", new {area="Admin"})">Click vào đây để bắt đầu</a>
 }
+<a href="@Url.Action("EditIntroduction", "Home", new {area="Admin"})">Click vào đây để cập nhật</a>
+
 <script src="/AdminStyle/js/ckeditor/ckeditor.js"></script>
 <script src="/AdminStyle/ckfinder/ckfinder.js"></script>
 @section scripts {
@@ -17,9 +16,9 @@ else
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
 
-        var editor = CKEDITOR.replace('editor1');
+        var editor = CKEDITOR.replace('MainContent');
 
-        CKFinder.setupCKEditor(null,'/ckfinder');
+        CKFinder.setupCKEditor(null, '/AdminStyle/ckfinder');
 
     </script>
 }

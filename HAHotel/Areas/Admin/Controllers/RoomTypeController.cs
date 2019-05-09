@@ -1,10 +1,6 @@
 ﻿using HAHotel.Areas.Base;
 using HAHotel.Models;
 using HAHotel.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace HAHotel.Areas.Admin.Controllers
@@ -41,7 +37,7 @@ namespace HAHotel.Areas.Admin.Controllers
             return View(new RoomType());
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Edit(RoomType roomType)
         {
             if (roomType == null)
@@ -56,7 +52,7 @@ namespace HAHotel.Areas.Admin.Controllers
                 {
                     SetFailedNotification(item.Value.ToString());
                 }
-                return RedirectToAction("Index");
+                return View(roomType);
             }
 
             var message = roomType.RoomTypeId > 0 ? "Cập nhật" : "Thêm";

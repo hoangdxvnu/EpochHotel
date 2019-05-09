@@ -1,0 +1,27 @@
+﻿@model HAHotel.Models.Introduction
+@if (Model != null)
+{
+     using (Html.BeginForm("EditIntroduction", "Home", FormMethod.Post, new {enctype = "multipart/form-data"}))
+     {
+         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+         @Html.TextAreaFor(x => x.MainContent)
+         @Html.ValidationMessageFor(model => model.MainContent, "", new { @class = "text-danger" })
+         <div class="form-group">
+             <button type="submit" class="btn btn-default">Cập nhật thông tin</button>
+         </div>
+     }
+}
+
+<script src="/AdminStyle/js/ckeditor/ckeditor.js"></script>
+<script src="/AdminStyle/ckfinder/ckfinder.js"></script>
+@section scripts {
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+
+        var editor = CKEDITOR.replace('MainContent');
+
+        CKFinder.setupCKEditor(null,'/AdminStyle/ckfinder');
+
+    </script>
+}

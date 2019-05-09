@@ -46,21 +46,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CKFinder, Version=2.6.0.2792, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\ADMIN\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\CKFinder.dll</HintPath>
+    <Reference Include="CKFinder">
+      <HintPath>..\Libararies\CKFinder.dll</HintPath>
     </Reference>
-    <Reference Include="CKFinder_FileEditor, Version=2.1.0.1132, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\ADMIN\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\CKFinder_FileEditor.dll</HintPath>
+    <Reference Include="CKFinder_FileEditor">
+      <HintPath>..\Libararies\CKFinder_FileEditor.dll</HintPath>
     </Reference>
-    <Reference Include="CKFinder_ImageResize, Version=2.1.0.1132, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\ADMIN\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\CKFinder_ImageResize.dll</HintPath>
+    <Reference Include="CKFinder_ImageResize">
+      <HintPath>..\Libararies\CKFinder_ImageResize.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="CKFinder_Watermark, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\ADMIN\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\CKFinder_Watermark.dll</HintPath>
+    <Reference Include="CKFinder_Watermark">
+      <HintPath>..\Libararies\CKFinder_Watermark.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -171,10 +168,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminNewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\IntroductionController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoomTypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SystemSlideController.cs" />
     <Compile Include="Areas\Base\BaseController.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -204,10 +203,12 @@
     <Compile Include="Repository\Common\SqlServerParameter.cs" />
     <Compile Include="Repository\IDatabase.cs" />
     <Compile Include="Repository\ILayoutRepository.cs" />
+    <Compile Include="Repository\INewsRepository.cs" />
     <Compile Include="Repository\ISystemMenuRepository.cs" />
     <Compile Include="Repository\IRoomTypeRepository.cs" />
     <Compile Include="Repository\LayoutRepository.cs" />
     <Compile Include="Models\SystemMenu.cs" />
+    <Compile Include="Repository\NewsRepository.cs" />
     <Compile Include="Repository\RoomTypeRepository.cs" />
     <Compile Include="Repository\SqlServerDatabase.cs" />
     <Compile Include="Repository\SystemMenuRepository.cs" />
@@ -1387,6 +1388,12 @@
     <Content Include="AdminStyle\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="AdminStyle\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Admin\Views\Home\Introduction.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\EditIntroduction.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminNews\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminNews\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemSlide\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemSlide\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\EditFooter.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
