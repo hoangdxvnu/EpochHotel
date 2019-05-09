@@ -7,7 +7,7 @@ namespace HAHotel.Models
 {
     public class RoomTypeRequest
     {
-        public bool? IsActive { get; set; }
+        public int IsActive { get; set; }
 
         public int PageSize { get; set; }
 

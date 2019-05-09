@@ -45,8 +45,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.IsActive)
                                 <label class="checkbox-inline">
-                                    <input data-val="true" data-val-required="The IsActive field is required." id="IsActive" name="IsActive" type="checkbox" value="true">
-                                    <input name="IsActive" type="hidden" value="false">
+                                    @Html.CheckBoxFor(x => x.IsActive)
                                     @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
                                 </label>
                             </div>
