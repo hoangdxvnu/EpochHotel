@@ -5,7 +5,7 @@ namespace HAHotel.Repository
 {
     public interface INewsRepository
     {
-        List<News> GetListNew(RoomTypeRequest request);
+        GridModel<News> GetListNew(RoomTypeRequest request);
 
         News GetById(int id);
 

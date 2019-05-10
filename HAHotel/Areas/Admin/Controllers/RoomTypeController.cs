@@ -16,7 +16,9 @@ namespace HAHotel.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var listType = _roomTypeRepository.GetListRoomType(new RoomTypeRequest());
+            var listType = _roomTypeRepository.GetListRoomType(new RoomTypeRequest {
+                IsActive = -1
+            });
             SetPageTitle("Quản lý loại phòng");
 
             return View(listType);

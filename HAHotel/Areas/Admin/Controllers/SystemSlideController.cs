@@ -17,7 +17,10 @@ namespace HAHotel.Areas.Admin.Controllers
         // GET: Admin/SystemSlide
         public ActionResult Index()
         {
-            var model = _systemMenuRepository.GetListSlides(new RoomTypeRequest());
+            var model = _systemMenuRepository.GetListSlides(new RoomTypeRequest
+            {
+                IsActive = -1
+            });
             return View(model);
         }
 

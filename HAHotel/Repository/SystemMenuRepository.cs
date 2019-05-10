@@ -17,8 +17,7 @@ namespace HAHotel.Repository
         public List<SystemMenu> GetListRoomType(RoomTypeRequest request)
         {
             var param = new SqlServerParameter();
-            if (request.IsActive.HasValue)
-                param.Add_Parameter("@_IsActive", request.IsActive);
+            param.Add_Parameter("@_IsActive", request.IsActive);
             param.Add_Parameter("@_PageSize", request.PageSize);
             param.Add_Parameter("@_PageIndex", request.PageIndex);
 
@@ -58,8 +57,7 @@ namespace HAHotel.Repository
         public List<SystemSlide> GetListSlides(RoomTypeRequest request)
         {
             var param = new SqlServerParameter();
-            if (request.IsActive.HasValue)
-                param.Add_Parameter("@_IsActive", request.IsActive);
+            param.Add_Parameter("@_IsActive", request.IsActive);
             param.Add_Parameter("@_PageSize", request.PageSize);
             param.Add_Parameter("@_PageIndex", request.PageIndex);
 

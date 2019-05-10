@@ -34,21 +34,24 @@ namespace HAHotel.Repository
             return new News();
         }
 
-        public List<News> GetListNew(RoomTypeRequest request)
+        public GridModel<News> GetListNew(RoomTypeRequest request)
         {
             var param = new SqlServerParameter();
-            if (request.IsActive.HasValue)
-                param.Add_Parameter("@_IsActive", request.IsActive);
+            param.Add_Parameter("@_IsActive", request.IsActive);
             param.Add_Parameter("@_PageSize", request.PageSize);
             param.Add_Parameter("@_PageIndex", request.PageIndex);
 
-            var data = _database.ExecuteToTable("News_GetList", param, ExecuteTypeEnum.StoredProcedure);
-            if (data != null && data.Rows.Count > 0)
+            var data = _database.ExecuteToDataset("News_GetList", param, ExecuteTypeEnum.StoredProcedure);
+            if (data != null && data.Tables.Count == 2)
             {
-                return SqlMapper<News>.Map(data);
+                return new GridModel<News>
+                {
+                    Data = SqlMapper<News>.Map(data.Tables[0]),
+                    TotalRecord = (int)data.Tables[1].Rows[0]["TotalRecord"]
+                };
             }
 
-            return new List<News>();
+            return new GridModel<News>();
         }
 
         public bool Save(News newModel)

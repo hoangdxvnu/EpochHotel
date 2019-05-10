@@ -17,7 +17,16 @@ namespace HAHotel.Areas.Admin.Controllers
         // GET: Admin/AdminNews
         public ActionResult Index()
         {
-            var model = _newsRepository.GetListNew(new RoomTypeRequest());
+            var model = _newsRepository.GetListNew(new RoomTypeRequest
+            {
+                IsActive = -1,
+                PageIndex = PageIndex,
+                PageSize = 2
+            });
+            model.PageSize = 2;
+            model.CurrentPage = PageIndex;
+            model.BaseUrl = Url.Action("Index", "AdminNews", new { Area = "Admin" });
+
             SetPageTitle("Quản lý bài viết");
 
             return View(model);

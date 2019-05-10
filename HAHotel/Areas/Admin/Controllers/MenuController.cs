@@ -17,7 +17,10 @@ namespace HAHotel.Areas.Admin.Controllers
         // GET: Admin/Menu
         public ActionResult Index()
         {
-            var listType = _menuRepository.GetListRoomType(new RoomTypeRequest());
+            var listType = _menuRepository.GetListRoomType(new RoomTypeRequest
+            {
+                IsActive = -1
+            });
             SetPageTitle("Quản lý menu");
 
             return View(listType);

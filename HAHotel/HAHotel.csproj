@@ -190,6 +190,7 @@
     </Compile>
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\Footer.cs" />
+    <Compile Include="Models\GridModel.cs" />
     <Compile Include="Models\Introduction.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Reviews.cs" />

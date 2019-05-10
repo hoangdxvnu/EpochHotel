@@ -11,12 +11,18 @@
     <link href="/AdminStyle/css/dataTables/dataTables.responsive.css" rel="stylesheet">
 
     <div class="row">
-        <p>
-            <a href="@Url.Action("Edit", "RoomType", new { Area = "Admin"})" type="button" class="btn btn-default btn-lg col-lg-offset-10">
-                <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-circle"></i> 
-                Tạo mới
-            </a>
-        </p>
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p>
+                        <a href="@Url.Action("Edit", "RoomType", new { Area = "Admin"})" type="button" class="btn btn-default btn-primary">
+                            <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-circle"></i>
+                            Tạo mới
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row">
@@ -32,7 +38,9 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Tên</th>
+                                    <th>Giá</th>
                                     <th>Ảnh đại diện</th>
+                                    <th>Phòng Hot</th>
                                     <th>Trạng thái</th>
                                     <th rowspan="1" colspan="1">    </th>
                                 </tr>
@@ -40,18 +48,20 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr class="odd gradeX">
-                                        <td>@item.RoomTypeId</td>
-                                        <td>@item.TypeName</td>
-                                        <td class="center">
-                                            <img width="50%" height="60%" src="@item.UrlImage" />
-                                        </td>
-                                        <td class="center">@(item.IsActive ? Constants.ActiveDescription : Constants.InactiveDescription)</td>
-                                        <td class="center">
-                                            <a href="@Url.Action("Edit", "RoomType", new { Area= "Admin", itemId= item.RoomTypeId})">Sửa</a>
-                                            <a href="#" onclick="return confirmDelete($(this));" data-url="@Html.Raw(Url.Action("Delete", "RoomType", new { Area= "Admin", itemId = item.RoomTypeId}))">Xóa</a>
-                                        </td>
-                                    </tr>
+                                <tr class="odd gradeX">
+                                    <td>@item.RoomTypeId</td>
+                                    <td>@item.TypeName</td>
+                                    <td>@item.Price.ToString("N0") VNĐ</td>
+                                    <td class="center">
+                                        <img width="50%" height="60%" src="@item.UrlImage" />
+                                    </td>
+                                    <td>@(item.IsHot? "Có" : "Không")</td>
+                                    <td class="center">@(item.IsActive ? Constants.ActiveDescription : Constants.InactiveDescription)</td>
+                                    <td class="center">
+                                        <a href="@Url.Action("Edit", "RoomType", new { Area= "Admin", itemId= item.RoomTypeId})">Sửa</a>
+                                        <a href="#" onclick="return confirmDelete($(this));" data-url="@Html.Raw(Url.Action("Delete", "RoomType", new { Area= "Admin", itemId = item.RoomTypeId}))">Xóa</a>
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>
