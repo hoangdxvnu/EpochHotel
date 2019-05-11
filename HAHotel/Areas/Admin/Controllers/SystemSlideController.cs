@@ -54,6 +54,14 @@ namespace HAHotel.Areas.Admin.Controllers
                 {
                     SetFailedNotification(item.Value.ToString());
                 }
+                if (ItemId > 0)
+                {
+                    SetPageTitle("Sửa slide");
+                }
+                else
+                {
+                    SetPageTitle("Tạo mới slide");
+                }
                 return View(systemSlide);
             }
 

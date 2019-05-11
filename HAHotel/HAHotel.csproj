@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminNewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\IntroductionController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
@@ -189,6 +190,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Constants.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Footer.cs" />
     <Compile Include="Models\GridModel.cs" />
     <Compile Include="Models\Introduction.cs" />
@@ -202,6 +204,8 @@
     <Compile Include="Repository\Common\SqlMapper.cs" />
     <Compile Include="Repository\Common\SqlServerConfig.cs" />
     <Compile Include="Repository\Common\SqlServerParameter.cs" />
+    <Compile Include="Repository\ContactRepository.cs" />
+    <Compile Include="Repository\IContactRepository.cs" />
     <Compile Include="Repository\IDatabase.cs" />
     <Compile Include="Repository\ILayoutRepository.cs" />
     <Compile Include="Repository\INewsRepository.cs" />
@@ -1395,6 +1399,8 @@
     <Content Include="Areas\Admin\Views\SystemSlide\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SystemSlide\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Home\EditFooter.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

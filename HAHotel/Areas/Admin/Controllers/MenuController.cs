@@ -56,6 +56,14 @@ namespace HAHotel.Areas.Admin.Controllers
                 {
                     SetFailedNotification(item.Value.ToString());
                 }
+                if (ItemId > 0)
+                {
+                    SetPageTitle("Chỉnh sửa menu");
+                }
+                else
+                {
+                    SetPageTitle("Tạo mới menu");
+                }
                 return View(systemMenu);
             }
 

@@ -54,6 +54,15 @@ namespace HAHotel.Areas.Admin.Controllers
                 {
                     SetFailedNotification(item.Value.ToString());
                 }
+
+                if (ItemId > 0)
+                {
+                    SetPageTitle("Chỉnh sửa loại phòng");
+                }
+                else
+                {
+                    SetPageTitle("Tạo mới loại phòng");
+                }
                 return View(roomType);
             }
 

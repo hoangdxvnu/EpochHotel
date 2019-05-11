@@ -62,6 +62,14 @@ namespace HAHotel.Areas.Admin.Controllers
                 {
                     SetFailedNotification(item.Value.ToString());
                 }
+                if (ItemId > 0)
+                {
+                    SetPageTitle("Sửa bài viết");
+                }
+                else
+                {
+                    SetPageTitle("Tạo mới bài viết");
+                }
                 return View(newModel);
             }
 
