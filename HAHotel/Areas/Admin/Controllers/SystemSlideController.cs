@@ -52,7 +52,10 @@ namespace HAHotel.Areas.Admin.Controllers
             {
                 foreach (var item in ModelState.Values)
                 {
-                    SetFailedNotification(item.Value.ToString());
+                    foreach (var error in item.Errors)
+                    {
+                        SetFailedNotification(error.ErrorMessage);
+                    }
                 }
                 if (ItemId > 0)
                 {

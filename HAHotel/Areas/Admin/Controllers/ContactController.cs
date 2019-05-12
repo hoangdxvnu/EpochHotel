@@ -23,9 +23,9 @@ namespace HAHotel.Areas.Admin.Controllers
             var model = _contactRepository.GetListContact(new RoomTypeRequest
             {
                 PageIndex = PageIndex,
-                PageSize = 2
+                PageSize = 15
             });
-            model.PageSize = 2;
+            model.PageSize = 15;
             model.CurrentPage = PageIndex;
             model.BaseUrl = Url.Action("Index", "Contact", new { Area = "Admin" });
 
@@ -62,7 +62,10 @@ namespace HAHotel.Areas.Admin.Controllers
             {
                 foreach (var item in ModelState.Values)
                 {
-                    SetFailedNotification(item.Value.ToString());
+                    foreach (var error in item.Errors)
+                    {
+                        SetFailedNotification(error.ErrorMessage);
+                    }
                 }
                 if (ItemId > 0)
                 {

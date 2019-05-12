@@ -10,11 +10,25 @@
         </div>
         <div class="col-md-6 contact-form">
             <h3>Nhập <span>thông tin</span></h3>
-            <form action="@Url.Action("Edit", "Contact", new { Area = "Admin"})" method="post">
-                <input type="text" class="form-control" name="Name" placeholder="Tên" required="">
-                <input type="text" class="form-control" name="Phone" placeholder="Số điện thoại" required="">
-                <input type="email" class="form-control" name="Email" placeholder="Email" required="">
-                <textarea class="form-control" name="Content" placeholder="Nhập nội dung" required=""></textarea>
+            @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+            {
+                <div class="alert alert-success">
+                    @ViewBag.SuccessMessage
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(ViewBag.FailedMessage))
+            {
+                <div class="alert alert-danger">
+                    <ul>
+                        @Html.Raw(ViewBag.FailedMessage)
+                    </ul>
+                </div>
+            }
+            <form action="@Url.Action("Send", "Contact")" method="post">
+                <input type="text" class="form-control" name="Name" placeholder="Tên">
+                <input type="text" class="form-control" name="Phone" placeholder="Số điện thoại">
+                <input type="email" class="form-control" name="Email" placeholder="Email">
+                <textarea class="form-control" name="Content" placeholder="Nhập nội dung"></textarea>
                 <input type="submit" class="submit-btn" value="Gửi">
             </form>
         </div>

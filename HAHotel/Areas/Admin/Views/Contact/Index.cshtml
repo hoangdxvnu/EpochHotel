@@ -1,4 +1,5 @@
 ﻿@model GridModel<HAHotel.Models.Contact>
+@using System.Text.RegularExpressions;
 @using HAHotel.Models
 @{
     ViewBag.Title = "Quản lý bài viết";
@@ -53,7 +54,7 @@
                                         <tr class="odd gradeX">
                                             <td>@item.Id</td>
                                             <td>@item.Name</td>
-                                            <td>@item.Phone</td>
+                                            <td>@("0" + string.Format("{0:### ### ####}", Convert.ToInt64(item.Phone)))</td>
                                             <td>@item.Email</td>
                                             <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">@item.Content</td>
                                             <td class="center">
