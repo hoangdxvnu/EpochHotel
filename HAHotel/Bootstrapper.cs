@@ -31,6 +31,7 @@ namespace HAHotel
             container.RegisterType<ISystemMenuRepository, SystemMenuRepository>(new TransientLifetimeManager());
             container.RegisterType<INewsRepository, NewsRepository>(new TransientLifetimeManager());
             container.RegisterType<IContactRepository, ContactRepository>(new TransientLifetimeManager());
+            container.RegisterType<IAccountRepository, AccountRepository>(new TransientLifetimeManager());
 
             return container;
         }

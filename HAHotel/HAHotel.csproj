@@ -172,6 +172,7 @@
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\IntroductionController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoomTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SystemSlideController.cs" />
@@ -189,8 +190,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AccountUtils.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Enums\AccountTypeEnum.cs" />
     <Compile Include="Models\Footer.cs" />
     <Compile Include="Models\GridModel.cs" />
     <Compile Include="Models\Introduction.cs" />
@@ -200,11 +204,13 @@
     <Compile Include="Models\RoomTypeRequest.cs" />
     <Compile Include="Models\SystemSlide.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\Common\ExecuteTypeEnum.cs" />
     <Compile Include="Repository\Common\SqlMapper.cs" />
     <Compile Include="Repository\Common\SqlServerConfig.cs" />
     <Compile Include="Repository\Common\SqlServerParameter.cs" />
     <Compile Include="Repository\ContactRepository.cs" />
+    <Compile Include="Repository\IAccountRepository.cs" />
     <Compile Include="Repository\IContactRepository.cs" />
     <Compile Include="Repository\IDatabase.cs" />
     <Compile Include="Repository\ILayoutRepository.cs" />
@@ -1401,6 +1407,7 @@
     <Content Include="Areas\Admin\Views\Home\EditFooter.cshtml" />
     <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Contact\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1451,7 +1458,6 @@
     <Folder Include="Areas\Admin\Views\Introduction\" />
     <Folder Include="CkfinderData\" />
     <Folder Include="Common\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Menu\" />
   </ItemGroup>

@@ -1,14 +1,19 @@
-﻿using System;
+﻿using HAHotel.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace HAHotel.Areas.Base
 {
     public class BaseController : Controller
     {
+        public Account AccountInfo { get; set; }
+
         public int PageIndex
         {
             get
@@ -62,7 +67,30 @@ namespace HAHotel.Areas.Base
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             base.OnActionExecuting(filterContext);
+            HandleAuthendication();
+            if (AccountInfo == null && !filterContext.ActionDescriptor.IsDefined(typeof(AllowAnonymousAttribute), true))
+            {
+                filterContext.Result = new RedirectResult(Url.Action("Index", "Login", new { Area = "Admin" }));
+                return;
+            }
 
+            HandleMessages();
+        }
+
+        private void HandleAuthendication()
+        {
+            var sessionData = HttpContext.Session[Constants.AccountSessionKey]?.ToString();
+            if (string.IsNullOrEmpty(sessionData))
+            {
+                AccountInfo = null;
+
+                return;
+            }
+            AccountInfo = JsonConvert.DeserializeObject<Account>(sessionData);
+        }
+
+        private void HandleMessages()
+        {
             if (TempData["SuccessMessage"] != null && !string.IsNullOrEmpty(TempData["SuccessMessage"].ToString()))
             {
                 SetSuccessMessage(TempData["SuccessMessage"].ToString());
@@ -91,6 +119,11 @@ namespace HAHotel.Areas.Base
         protected void SetPageTitle(string title)
         {
             ViewBag.PageTitle = title;
+        }
+
+        protected void SetAccountSession(Account account)
+        {
+            HttpContext.Session.Add(Constants.AccountSessionKey, JsonConvert.SerializeObject(account));
         }
     }
 }

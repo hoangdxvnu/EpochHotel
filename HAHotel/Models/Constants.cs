@@ -11,5 +11,6 @@ namespace HAHotel.Models
 
         public const string ActiveDescription = "Hoạt động";
         public const string InactiveDescription = "Ngừng hoạt động";
+        public const string AccountSessionKey = "ACCOUNT_INFO";
     }
 }
