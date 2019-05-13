@@ -52,7 +52,19 @@ namespace HAHotel.Areas.Admin.Controllers
             {
                 foreach (var item in ModelState.Values)
                 {
-                    SetFailedNotification(item.Value.ToString());
+                    foreach (var error in item.Errors)
+                    {
+                        SetFailedNotification(error.ErrorMessage);
+                    }
+                }
+
+                if (ItemId > 0)
+                {
+                    SetPageTitle("Chỉnh sửa loại phòng");
+                }
+                else
+                {
+                    SetPageTitle("Tạo mới loại phòng");
                 }
                 return View(roomType);
             }
