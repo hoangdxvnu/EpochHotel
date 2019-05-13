@@ -1442,6 +1442,7 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Room\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminStyle\ckfinder\Data\" />

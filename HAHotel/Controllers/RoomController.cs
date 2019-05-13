@@ -15,5 +15,11 @@ namespace HAHotel.Controllers
             SetCurrentMenu();
             return View();
         }
+
+        public ActionResult Detail(int roomId)
+        {
+
+            return View();
+        }
     }
 }
