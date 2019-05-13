@@ -5,9 +5,11 @@ namespace HAHotel.Controllers
 {
     public class RoomController: BaseController
     {
-        public RoomController(ILayoutRepository layoutRepository) : base(layoutRepository)
+        private readonly IRoomTypeRepository _roomTypeRepository;
+
+        public RoomController(ILayoutRepository layoutRepository, IRoomTypeRepository roomTypeRepository) : base(layoutRepository)
         {
-            
+            _roomTypeRepository = roomTypeRepository;
         }
 
         public ActionResult Index()
@@ -18,8 +20,8 @@ namespace HAHotel.Controllers
 
         public ActionResult Detail(int roomId)
         {
-
-            return View();
+            var model = _roomTypeRepository.GetById(roomId);
+            return View(model);
         }
     }
 }
