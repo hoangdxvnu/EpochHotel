@@ -85,7 +85,7 @@ namespace HAHotel.Areas.Base
         {
             if (ViewBag.FailedMessage == null)
                 ViewBag.FailedMessage = string.Empty;
-            ViewBag.FailedMessage += msg;
+            ViewBag.FailedMessage += $"<p>{msg}</p>";
         }
 
         protected void SetPageTitle(string title)
