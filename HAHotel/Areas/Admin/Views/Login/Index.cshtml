@@ -1,0 +1,31 @@
+﻿@model HAHotel.Models.Account
+
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form role="form" method="post" action="@Url.Action("Index", "Login", new { Area="Admin"})">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.UserName)
+                                @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.UserName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Password)
+                                @Html.TextBoxFor(x => x.Password, new { @type = "password", @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <button type="submit" class="btn btn-default btn-primary">Đăng nhập</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+        </div>
+    </div>
+</div>
