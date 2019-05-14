@@ -62,5 +62,14 @@ namespace HAHotel.Areas.Admin.Controllers
 
             return Redirect(Url.Action("Index", "Home", new { Area = "Admin" }));
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult Logout()
+        {
+            HttpContext.Session[Constants.AccountSessionKey] = string.Empty;
+
+            return RedirectToAction("Index");
+        }
     }
 }

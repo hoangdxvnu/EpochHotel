@@ -43,6 +43,23 @@
                 <span class="icon-bar"></span>
             </button>
 
+            @if (!string.IsNullOrEmpty(ViewBag.Username))
+            {
+                <ul class="nav navbar-right navbar-top-links">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <i class="fa fa-user fa-fw"></i> @ViewBag.Username <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li class="divider"></li>
+                            <li>
+                                <a href="@Url.Action("Logout", "Login", new { Area = "Admin" })"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            }
+
             @Html.Partial("_Menu")
         </nav>
 
