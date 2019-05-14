@@ -87,6 +87,7 @@ namespace HAHotel.Areas.Base
                 return;
             }
             AccountInfo = JsonConvert.DeserializeObject<Account>(sessionData);
+            ViewBag.Username = AccountInfo.UserName;
         }
 
         private void HandleMessages()
