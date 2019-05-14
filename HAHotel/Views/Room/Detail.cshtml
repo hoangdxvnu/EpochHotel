@@ -45,7 +45,7 @@
                                     <div class="col-md-12">
                                         <label class="control-label">Ngày nhận</label>
                                         <div class="input-group date date-check-in" data-date="12-02-2017" data-date-format="mm-dd-yyyy">
-                                            <input name="date1" class="form-control" type="text" value="12-02-2017">
+                                            <input name="date1" class="form-control" type="text" />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -120,11 +120,12 @@
             <div class="clearfix"> </div>
         </div>
     </section>
+
     @section scripts {
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#date1').datetimepicker();
+            <script type="text/javascript">
+            $(function() {
+                $("#date1").datepicker();
             });
         </script>
-    }
+        }
 }

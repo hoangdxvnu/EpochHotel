@@ -1,0 +1,55 @@
+﻿@using HAHotel.Models
+@model HAHotel.Models.Footer
+@{
+    var listRoom = (List<RoomType>)ViewBag.ListRooms; 
+}
+<section class="contact-block">
+    <div class="container">
+        <div class="col-md-4 contact-left-block">
+            <h3><span>Thông tin </span>liên hệ</h3>
+            <p class="text-left">Sapa New Epoch Hotel, Sa Pa – Đặt phòng được Đảm Bảo Giá Tốt Nhất!</p>
+            <p class="text-right">@Model.Address <i class="fa fa-map-marker fa-lg"></i></p>
+            <p class="text-right"><a href="tel:+1-202-555-0100">@Model.Phone <i class="fa fa-phone fa-lg"></i></a></p>
+            <p class="text-right"><a href="mailto:demo@info.com">@Model.Email <i class="fa fa-envelope"></i></a></p>
+        </div>
+        <div class="col-md-8 contact-form">
+            <h3>THÔNG TIN ĐẶT PHÒNG
+            </h3>
+            @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+            {
+                <div class="alert alert-success">
+                    @ViewBag.SuccessMessage
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(ViewBag.FailedMessage))
+            {
+                <div class="alert alert-danger">
+                    <ul>
+                        @Html.Raw(ViewBag.FailedMessage)
+                    </ul>
+                </div>
+            }
+            <form action="@Url.Action("Index", "Service")" method="post">
+                <input type="text" class="form-control" name="Name" placeholder="Tên">
+                <input type="text" class="form-control" name="Phone" placeholder="Số điện thoại">
+                <input type="email" class="form-control" name="Email" placeholder="Email">
+                <select class="form-control">
+                    <option>Chọn phòng</option>
+                    @if (listRoom != null && listRoom.Any())
+                    {
+                        foreach (var item in listRoom)
+                        {
+                            <option value="@item.RoomTypeId">@item.TypeName</option>
+                        }
+                    }
+                </select>
+                <input type="text" class="form-control" name="Checkin" placeholder="Ngày nhận phòng">
+                <input type="text" class="form-control" name="Checkout" placeholder="Ngày trả phòng">
+                <textarea class="form-control" name="Content" placeholder="Nhập nội dung"></textarea>
+                <input type="submit" class="submit-btn" value="Đặt phòng">
+            </form>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <br/>
+</section>
