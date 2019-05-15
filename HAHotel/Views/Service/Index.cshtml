@@ -1,0 +1,59 @@
+﻿@model HAHotel.Models.OrderModel
+<section class="contact-block">
+    <div class="container">
+        <div class="col-md-4 contact-left-block">
+            <h3><span>Thông tin </span>liên hệ</h3>
+            <p class="text-left">Sapa New Epoch Hotel, Sa Pa – Đặt phòng được Đảm Bảo Giá Tốt Nhất!</p>
+            <p class="text-right">@Model.Footer.Address <i class="fa fa-map-marker fa-lg"></i></p>
+            <p class="text-right"><a href="tel:+1-202-555-0100">@Model.Footer.Phone <i class="fa fa-phone fa-lg"></i></a></p>
+            <p class="text-right"><a href="mailto:demo@info.com">@Model.Footer.Email <i class="fa fa-envelope"></i></a></p>
+        </div>
+        <div class="col-md-8 contact-form">
+            <h3>THÔNG TIN ĐẶT PHÒNG</h3>
+            @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+            {
+                <div class="alert alert-success">
+                    @ViewBag.SuccessMessage
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(ViewBag.FailedMessage))
+            {
+                <div class="alert alert-danger">
+                    <ul>
+                        @Html.Raw(ViewBag.FailedMessage)
+                    </ul>
+                </div>
+            }
+            <form action="@Url.Action("Index", "Service")" method="post">
+                @Html.TextBoxFor(x => x.Order.Name, new {@class = "form-control", placeholder = "Tên"})
+                @Html.TextBoxFor(x => x.Order.Phone, new {@class = "form-control", placeholder = "Số điện thoại"})
+                @Html.TextBoxFor(x => x.Order.Email, new {@class = "form-control", placeholder = "Email"})
+                @Html.DropDownListFor(x => x.Order.RoomId, Model.RoomTypes.Select(x => new SelectListItem {Text = x.TypeName, Value = x.RoomTypeId.ToString()}), new {@class = "form-control"})
+                <input type="text" id="Checkin" value="@Model.Order.CheckIn.ToString("dd/MM/yyyy")" class="form-control" name="Order.CheckIn" placeholder="Ngày nhận phòng">
+                <input type="text" id="Checkout" value="@Model.Order.CheckOut.ToString("dd/MM/yyyy")" class="form-control" name="Order.CheckOut" placeholder="Ngày trả phòng">
+                @Html.TextAreaFor(x => x.Order.Description, new {@placeholder = "Nhập nội dung", @class = "form-control"})
+                <input type="submit" class="submit-btn" value="Đặt phòng">
+            </form>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <br/>
+</section>
+<style>
+    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+        width: auto !important;
+        height: auto !important;
+        background: #f6f6f6 !important;
+        border: 1px solid #c5c5c5;
+        border-radius: 0px;
+        outline: none;
+    } 
+</style>
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Checkin').datepicker();
+            $('#Checkout').datepicker();
+        });
+    </script>
+}
