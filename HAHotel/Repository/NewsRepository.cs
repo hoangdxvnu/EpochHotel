@@ -37,7 +37,6 @@ namespace HAHotel.Repository
         public GridModel<News> GetListNew(RoomTypeRequest request)
         {
             var param = new SqlServerParameter();
-            param.Add_Parameter("@_IsActive", request.IsActive);
             param.Add_Parameter("@_PageSize", request.PageSize);
             param.Add_Parameter("@_PageIndex", request.PageIndex);
 
