@@ -1,4 +1,5 @@
-﻿using HAHotel.Models;
+﻿using System.Collections.Generic;
+using HAHotel.Models;
 using HAHotel.Repository.Common;
 
 namespace HAHotel.Repository
@@ -28,6 +29,22 @@ namespace HAHotel.Repository
             var data = _database.ExecuteScalar<int>("Order_Save", param, ExecuteTypeEnum.StoredProcedure);
 
             return data == 1;
+        }
+
+        public List<Order> FetchListOrder(RoomTypeRequest request)
+        {
+            var param = new SqlServerParameter();
+            param.Add_Parameter("@_IsActive", request.IsActive);
+            param.Add_Parameter("@_PageSize", request.PageSize);
+            param.Add_Parameter("@_PageIndex", request.PageIndex);
+
+            var data = _database.ExecuteToTable("Order_GetList", param, ExecuteTypeEnum.StoredProcedure);
+            if (data != null && data.Rows.Count > 0)
+            {
+                return SqlMapper<Order>.Map(data);
+            }
+
+            return new List<Order>();
         }
     }
 }
