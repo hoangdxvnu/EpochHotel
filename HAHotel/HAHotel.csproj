@@ -1611,6 +1611,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Room\Detail.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\News\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminStyle\ckfinder\Data\" />

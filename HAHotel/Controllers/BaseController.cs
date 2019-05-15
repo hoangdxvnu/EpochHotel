@@ -21,6 +21,19 @@ namespace HAHotel.Controllers
             ViewBag.CurrentMenu = CurrentMenu;
         }
 
+        public int ItemId
+        {
+            get
+            {
+                if (HttpContext.Request.QueryString != null && HttpContext.Request.QueryString["itemId"] != null)
+                {
+                    return int.Parse(HttpContext.Request.QueryString["itemId"]);
+                }
+
+                return 0;
+            }
+        }
+
         public int PageIndex
         {
             get
