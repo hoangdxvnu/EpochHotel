@@ -3,7 +3,7 @@ using HAHotel.Repository;
 
 namespace HAHotel.Controllers
 {
-    public class NewsController: BaseController
+    public class NewsController : BaseController
     {
         private readonly INewsRepository _newsRepository;
 
@@ -15,13 +15,27 @@ namespace HAHotel.Controllers
         public ActionResult Index()
         {
             SetCurrentMenu();
-            var news = _newsRepository.GetListNew(new Models.RoomTypeRequest {
+            var news = _newsRepository.GetListNew(new Models.RoomTypeRequest
+            {
                 PageIndex = PageIndex,
                 PageSize = 5
             });
             news.PageSize = 5;
             news.BaseUrl = Url.Action("Index", "News");
             news.CurrentPage = PageIndex;
+
+            return View(news);
+        }
+
+        [HttpGet]
+        public ActionResult Detail()
+        {
+            if (ItemId <= 0)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var news = _newsRepository.GetById(ItemId);
 
             return View(news);
         }

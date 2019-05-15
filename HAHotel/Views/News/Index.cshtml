@@ -1,18 +1,22 @@
 ﻿@using HAHotel.Models
 @model GridModel<News>
 
-@if(Model?.Data != null && Model.Data.Any())
+@if (Model?.Data != null && Model.Data.Any())
 {
     <section class="resort-overview-block">
         <div class="container">
             <div class="row">
+                @{
+                    var baseUrl = Url.Action("Detail", "News");
+                }
                 @foreach (var item in Model.Data)
                 {
+                    var itemUrl = baseUrl + "?itemId=" + item.NewId;
                     <div class="col-md-6 col-sm-12 col-xs-12 remove-padd-right">
                         <div class="side-A">
                             <div class="product-thumb">
                                 <div class="image">
-                                    <a>
+                                    <a href="@itemUrl">
                                         <img src="@item.UrlImage" alt="image" class="img-responsive" style="width: 280px !important; height: 186px !important;" />
                                     </a>
                                 </div>
@@ -20,7 +24,9 @@
                         </div>
                         <div class="side-B">
                             <div class="product-desc-side">
-                                <h3>@item.Title</h3>
+                                <a href="@itemUrl">
+                                    <h3>@item.Title</h3>
+                                </a>
                                 @Html.Raw(item.Description)
                             </div>
                         </div>

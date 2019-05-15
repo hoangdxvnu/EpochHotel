@@ -1,0 +1,21 @@
+﻿@model HAHotel.Models.News
+
+@if (Model != null)
+{
+    <section class="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-8 col-xs-12">
+                    <h2 class="blog-title-head">@Model.Title</h2>
+                    <div class="blog-image-single margin-top-small">
+                        <img class="img-responsive" src="@Model.UrlImage" />
+                    </div>
+                    <p class="blog-desc">
+                        @Html.Raw(Model.MainContent)
+                    </p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
