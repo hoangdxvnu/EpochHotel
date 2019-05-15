@@ -23,10 +23,8 @@
     <script src="/js/instafeed.min.js" type="text/javascript"></script>
     <script src="/js/custom.js" type="text/javascript"></script>
     <link href="/js/datetimeplugin/jquery-ui.css" rel="stylesheet" />
-    <script src="/js/datetimeplugin/jquery-1.12.4.js"></script>
-    <script src="/js/datetimeplugin/jquery-ui.js"></script>
-
-
+    <script type="text/javascript" src="/js/datetimeplugin/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/js/datetimeplugin/jquery-ui.js"></script>
 </head>
 <body>
     <div id="page">
@@ -91,15 +89,65 @@
         @RenderBody()
         <!---footer--->
        @Html.Action("Footer", "Menu")
-        <!--back to top--->
-    <a style="display: none;" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
-        <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
-        <span>Top</span>
-    </a>
         
-    @*@Scripts.Render("~/bundles/jquery")*@
+        <div class="zalo">
+            <a data-animate="fadeInDown" rel="noopener noreferrer" href="http://zalo.me/0975665479" target="_blank" class="button success" style="border-radius:99px;" data-animated="true">
+                <span style="color: white; font-weight: bold;">Chat Zalo </span>
+            </a>
+        </div>
+        <div class="hotlineEpoch"> 
+        <a id="callnowbutton" style="color: white; font-weight: bold;" href="tel:+84961295295"><i class="fa fa-phone"></i> Hotline: 0975.665.479</a> 
+        </div> 
+        <div class="hotline1">
+            <a id="callnowbutton" style="color: white; font-weight: bold;" href="tel:+84385 434 535"><i class="fa fa-phone"></i> Reception: 0385.434.535</a>
+        </div>
+        <!--back to top--->
+        <a style="display: none;" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
+            <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
+            <span>Top</span>
+        </a>
+       
+    @* @Scripts.Render("~/bundles/jquery") *@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+        <style>
+            .hotlineEpoch {
+                background: #0080c8;
+                position: fixed;
+                bottom: 155px;
+                height: 40px;
+                line-height: 40px;
+                padding: 10p 0px 0 0px;
+                border-radius: 40px;
+                color: #fff;
+                right: 40px;
+                z-index: 99999
+            }
+            .zalo {
+                background: #009dff;
+                position: fixed;
+                bottom: 200px;
+                height: 40px;
+                line-height: 40px;
+                padding: 10p 0px 0 0px;
+                border-radius: 40px;
+                color: white;
+                right: 40px;
+                z-index: 99999
+            }
+            .hotline1 {
+                background: #ED1C24;
+                position: fixed;
+                bottom: 112px;
+                height: 40px;
+                line-height: 40px;
+                padding: 0 0px 0 0px;
+                border-radius: 40px;
+                color: #fff;
+                right: 40px;
+                z-index: 99999;
+            }
+        </style>
     </div>
 </body>
 </html>

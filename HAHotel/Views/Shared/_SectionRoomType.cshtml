@@ -9,8 +9,8 @@
                         <div class="gallery-image">
                             <img class="img-responsive" src="@item.UrlImage">
                             <div class="overlay">
-                                <a class="info pop example-image-link img-responsive" href="@item.UrlImage" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                <p><a>@item.TypeName</a>
+                                <a class="info pop example-image-link img-responsive" href="@Url.Action("Index", "Service")">Booking <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                <p><a href="@Url.Action("Detail", "Room", new { roomId=item.RoomTypeId})">@item.TypeName</a>
                                 </p>
                             </div>
                         </div>
