@@ -39,6 +39,7 @@ namespace HAHotel.Repository
             var param = new SqlServerParameter();
             param.Add_Parameter("@_PageSize", request.PageSize);
             param.Add_Parameter("@_PageIndex", request.PageIndex);
+            param.Add_Parameter("@_TextSearch", request.Keyword);
 
             var data = _database.ExecuteToDataset("News_GetList", param, ExecuteTypeEnum.StoredProcedure);
             if (data != null && data.Tables.Count == 2)
