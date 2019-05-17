@@ -21,11 +21,13 @@ namespace HAHotel.Areas.Admin.Controllers
             {
                 IsActive = -1,
                 PageIndex = PageIndex,
-                PageSize = 10
+                PageSize = 2,
+                Keyword= Keyword
             });
             model.PageSize = 2;
             model.CurrentPage = PageIndex;
             model.BaseUrl = Url.Action("Index", "AdminNews", new { Area = "Admin" });
+            model.Keyword = Keyword;
 
             SetPageTitle("Quản lý bài viết");
 

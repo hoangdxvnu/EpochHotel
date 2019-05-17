@@ -14,6 +14,19 @@ namespace HAHotel.Areas.Base
     {
         public Account AccountInfo { get; set; }
 
+        public string Keyword
+        {
+            get
+            {
+                if (HttpContext.Request.QueryString != null && HttpContext.Request.QueryString["k"] != null)
+                {
+                    return HttpContext.Request.QueryString["k"];
+                }
+
+                return string.Empty;
+            }
+        }
+
         public int PageIndex
         {
             get
