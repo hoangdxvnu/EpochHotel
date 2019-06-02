@@ -21,7 +21,7 @@ namespace HAHotel.Areas.Admin.Controllers
             {
                 IsActive = -1,
                 PageIndex = PageIndex,
-                PageSize = 2,
+                PageSize = 10,
                 Keyword= Keyword
             });
             model.PageSize = 2;

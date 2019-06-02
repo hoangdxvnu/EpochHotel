@@ -20,7 +20,7 @@
                     </div>
                     <div class="side-B">
                         <div class="product-desc-side">
-                            <h3><a>@item.Title</a></h3>
+                            <h3><a href="@Url.Action("Detail", "News", new {ItemId=item.NewId})">@item.Title</a></h3>
                             <p>@Html.Raw(item.Description)</p>
                             @*<div class="links"><a href="single-blog.html">Xem thêm</a>
                             </div>*@
@@ -42,7 +42,7 @@
                     <div class="side-B">
                         <div class="product-desc-side">
                             <h3>
-                                <a>@item.Title</a>
+                                <a href="@Url.Action("Detail", "News", new {ItemId=item.NewId})">@item.Title</a>
                             </h3>
                             <p>@Html.Raw(item.Description)</p>
                             @*<div class="links">
