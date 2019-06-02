@@ -119,6 +119,9 @@ namespace HAHotel.Repository
             param.Add_Parameter("@_Youtube", footer.Youtube);
             param.Add_Parameter("@_Google", footer.Google);
             param.Add_Parameter("@_FooterId", footer.FooterId);
+            param.Add_Parameter("@_Zalo", footer.Zalo);
+            param.Add_Parameter("@_Hotline", footer.Hotline);
+            param.Add_Parameter("@_Reception", footer.Reception);
 
             var data = _database.ExecuteScalar<int>("Footer_Save", param, ExecuteTypeEnum.StoredProcedure);
 

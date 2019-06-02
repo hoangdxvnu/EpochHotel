@@ -33,5 +33,17 @@ namespace HAHotel.Models
 
         [Display(Name = "Google")]
         public string Google { get; set; }
+
+        [Display(Name = "Zalo")]
+        [Required(ErrorMessage = "Bạn phải nhập địa chỉ")]
+        public string Zalo { get; set; }
+
+        [Display(Name = "Hotline")]
+        [Required(ErrorMessage = "Bạn phải nhập địa chỉ")]
+        public string Hotline { get; set; }
+
+        [Display(Name = "Lễ tân")]
+        [Required(ErrorMessage = "Bạn phải nhập địa chỉ")]
+        public string Reception { get; set; }
     }
 }
