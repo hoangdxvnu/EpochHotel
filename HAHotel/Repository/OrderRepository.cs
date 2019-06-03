@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using HAHotel.Models;
 using HAHotel.Repository.Common;
 
@@ -37,6 +38,7 @@ namespace HAHotel.Repository
             param.Add_Parameter("@_IsActive", request.IsActive);
             param.Add_Parameter("@_PageSize", request.PageSize);
             param.Add_Parameter("@_PageIndex", request.PageIndex);
+            param.Add_Parameter("@_Status", request.Status);
 
             var data = _database.ExecuteToTable("Order_GetList", param, ExecuteTypeEnum.StoredProcedure);
             if (data != null && data.Rows.Count > 0)
@@ -45,6 +47,21 @@ namespace HAHotel.Repository
             }
 
             return new List<Order>();
+        }
+
+        public Order GetOrderById(int id)
+        {
+            var param = new SqlServerParameter();
+            param.Add_Parameter("@_Id", id);
+
+            var data = _database.ExecuteToTable($"SELECT * FROM [Order] WHERE OrderId=@_Id", param, ExecuteTypeEnum.SqlQuery);
+
+            if (data != null && data.Rows.Count > 0)
+            {
+                return SqlMapper<Order>.Map(data.Rows[0]);
+            }
+
+            return new Order();
         }
     }
 }

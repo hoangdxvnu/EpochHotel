@@ -13,6 +13,8 @@ namespace HAHotel.Models
 
         public int PageIndex { get; set; }
 
+        public int Status { get; set; }
+
         public string Keyword { get; set; }
     }
 }

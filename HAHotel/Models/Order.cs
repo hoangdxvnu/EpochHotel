@@ -15,6 +15,7 @@ namespace HAHotel.Models
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
         public DateTime CreatedAt { get; set; }
+        public DateTime? ModifiedAt { get; set; }
         public int Status { get; set; }
         public string Description { get; set; }
     }

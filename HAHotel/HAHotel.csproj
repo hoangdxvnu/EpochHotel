@@ -1570,6 +1570,8 @@
     <Content Include="Areas\Admin\Views\Contact\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrder\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminOrder\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminOrder\History.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

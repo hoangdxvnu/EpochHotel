@@ -8,5 +8,7 @@ namespace HAHotel.Repository
         bool Saving(Order order);
 
         List<Order> FetchListOrder(RoomTypeRequest request);
+
+        Order GetOrderById(int id);
     }
 }

@@ -36,17 +36,21 @@
                 <a href="@Url.Action("Index", "Contact", new {area = "Admin"})" class="active"><i class="fa fa-edit fa-fw"></i> Liên hệ</a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "AdminOrder", new {area = "Admin"})" class="active"><i class="fa fa-dashboard fa-fw"></i> Quản lý đặt phòng</a>
+                <a href="@Url.Action("Index", "AdminOrder", new {area = "Admin"})" class="active"><i class="fa fa-dashboard fa-fw"></i>Đặt phòng chờ xử lý</a>
             </li>
+            <li>
+                <a href="@Url.Action("History", "AdminOrder", new {area = "Admin"})" class="active"><i class="fa fa-check fa-fw"></i>Đặt phòng đã xử lý</a>
+            </li>
+  
             <li>
             <li>
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Quản trị hệ thống<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse in">
                     <li>
-                        <a href="panels-wells.html">Quản lý người dùng</a>
+                        <a href="#">Quản lý người dùng</a>
                     </li>
                     <li>
-                        <a href="buttons.html">Cấu hình hệ thống</a>
+                        <a href="#">Cấu hình hệ thống</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
