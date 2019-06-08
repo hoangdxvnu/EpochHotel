@@ -2,6 +2,8 @@
 @using HAHotel.Models
 @{
     ViewBag.Title = "Quản lý đặt phòng";
+    var listRooms = (List<RoomType>)ViewBag.ListRoom;
+
 }
 
 @if (Model != null)
@@ -51,19 +53,19 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr class="odd gradeX">
-                                        <td>@(item.Status > 0 ? "Đã xử lý" : "Chờ xử lý")</td>
-                                        <td>@item.Name</td>
-                                        <td>@item.Email</td>
-                                        <td>@item.Phone</td>
-                                        <td>@item.RoomId</td>
-                                        <td>@item.CheckIn.ToString("dd/MM/yyyy")</td>
-                                        <td>@item.CheckOut.ToString("dd/MM/yyyy")</td>
-                                        <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
-                                        <td class="center">
-                                            <a href="@Url.Action("Edit", "AdminOrder", new { Area= "Admin", ItemId =item.OrderId})">Sửa</a>
-                                        </td>
-                                    </tr>
+                                <tr class="odd gradeX">
+                                    <td>@(item.Status > 0 ? "Đã xử lý" : "Chờ xử lý")</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Phone</td>
+                                    <td>@(listRooms?.FirstOrDefault(x => x.RoomTypeId == item.RoomId)?.TypeName ?? item.RoomId.ToString())</td>
+                                    <td>@item.CheckIn.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.CheckOut.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
+                                    <td class="center">
+                                        <a href="@Url.Action("Edit", "AdminOrder", new { Area= "Admin", ItemId =item.OrderId})">Sửa</a>
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>

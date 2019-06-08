@@ -2,6 +2,7 @@
 @using HAHotel.Models
 @{
     ViewBag.Title = "Quản lý đặt phòng";
+    var listRooms = (List<RoomType>)ViewBag.ListRoom;
 }
 
 @if (Model != null)
@@ -56,7 +57,7 @@
                                         <td>@item.Name</td>
                                         <td>@item.Email</td>
                                         <td>@item.Phone</td>
-                                        <td>@item.RoomId</td>
+                                        <td>@(listRooms?.FirstOrDefault(x=>x.RoomTypeId == item.RoomId)?.TypeName ?? item.RoomId.ToString())</td>
                                         <td>@item.CheckIn.ToString("dd/MM/yyyy")</td>
                                         <td>@item.CheckOut.ToString("dd/MM/yyyy")</td>
                                         <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>

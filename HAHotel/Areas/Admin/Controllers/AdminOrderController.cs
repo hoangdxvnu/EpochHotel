@@ -9,10 +9,12 @@ namespace HAHotel.Areas.Admin.Controllers
     public class AdminOrderController : BaseController
     {
         private readonly IOrderRepository _orderRepository;
+        private readonly IRoomTypeRepository _roomTypeRepository;
 
-        public AdminOrderController(IOrderRepository orderRepository)
+        public AdminOrderController(IOrderRepository orderRepository, IRoomTypeRepository roomTypeRepository)
         {
             _orderRepository = orderRepository;
+            _roomTypeRepository = roomTypeRepository;
         }
 
         // GET: Admin/AdminOrder
@@ -23,6 +25,13 @@ namespace HAHotel.Areas.Admin.Controllers
                 PageIndex = 1,
                 PageSize = 20,
                 IsActive = 1
+            });
+
+            ViewBag.ListRoom = _roomTypeRepository.GetListRoomType(new RoomTypeRequest
+            {
+                IsActive = 1,
+                PageSize = 20,
+                PageIndex = 1
             });
 
             SetPageTitle("Quản lý đặt phòng");
@@ -39,6 +48,13 @@ namespace HAHotel.Areas.Admin.Controllers
                 PageSize = 20,
                 IsActive = 1,
                 Status = 1
+            });
+
+            ViewBag.ListRoom = _roomTypeRepository.GetListRoomType(new RoomTypeRequest
+            {
+                IsActive = 1,
+                PageSize = 20,
+                PageIndex = 1
             });
 
             SetPageTitle("Quản lý đặt phòng đã xử lý");
